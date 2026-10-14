@@ -24,13 +24,14 @@ def login():
         cursor = connection.cursor()
 
         query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
+        print(query)
         cursor.execute(query)
         result = cursor.fetchone()
 
         connection.close()
 
         if result:
-            message = 'Login has been successful, Welcome' + username
+            message = 'Login has been successful, Welcome ' + username
         else:
             message = 'You have entered incorrect details'
 
